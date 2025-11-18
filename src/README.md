@@ -1,0 +1,1 @@
+This src directory contains a minimal preview page. Use it to view the compiled tender response by opening index.html in a web browser. You can customize or replace this with a full Next.js or React app if needed.
