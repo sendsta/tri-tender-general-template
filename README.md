@@ -5,7 +5,6 @@ Welcome to the Tri‑Tender General Template, the core framework that powers Tri
 🎯 Why Use This Template?
 
 Evaluation‑Aligned Responses: The template mirrors common tender sections and scoring criteria
-xait.com
 , ensuring you address every point that evaluators look for—so you earn maximum points.
 
 AI‑Guided Content Creation: Paired with our AI‑RULES.md, the template instructs the AI exactly how to extract requirements, map them to your company’s capabilities, and populate each section without hallucinating facts.
@@ -53,7 +52,7 @@ When Tri‑Tender runs, it first reads the AI-RULES.md file. This document instr
 Extract tender metadata (title, number, issuer, closing date, evaluation criteria, etc.).
 
 Identify all mandatory requirements and evaluation criteria
-xait.com
+
 .
 
 Plan which section of the template each requirement belongs to.
