@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tri-Tender - Document Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .card h3 {
+            color: #1a365d;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .card p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        
+        .card .meta {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        
+        .card a {
+            display: inline-block;
+            background: #3182ce;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .card a:hover {
+            background: #2c5282;
+        }
+        
+        .section-title {
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-complete {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-draft {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+        
+        .folder-section {
+            margin-bottom: 40px;
+        }
+        
+        .info-box {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 25px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .info-box h3 {
+            margin-bottom: 15px;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-box li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .info-box li:last-child {
+            border-bottom: none;
+        }
+        
+        footer {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 Tri-Tender</h1>
+            <p>Tender Response Document Preview</p>
+        </header>
+        
+        <div class="info-box">
+            <h3>Quick Start</h3>
+            <ul>
+                <li>📁 <strong>tender-input/</strong> – Upload your tender & company documents here</li>
+                <li>⚙️ <strong>tender-config/</strong> – Company profile and brand settings</li>
+                <li>📄 <strong>tender-output/</strong> – Generated tender documents appear here</li>
+            </ul>
+        </div>
+        
+        <div class="folder-section">
+            <h2 class="section-title">📄 Generated Documents</h2>
+            <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">
+                Documents will appear here once the AI generates them in <code>tender-output/</code>
+            </p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>01 - Cover Letter <span class="status-badge status-pending">Pending</span></h3>
+                    <p>Executive cover letter introducing your company and summarising your proposal.</p>
+                    <div class="meta">Expected: 2-3 pages</div>
+                    <a href="tender-output/01_cover_letter.html">Preview →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>02 - Company Profile <span class="status-badge status-pending">Pending</span></h3>
+                    <p>Comprehensive overview of your company, capabilities, and experience.</p>
+                    <div class="meta">Expected: 5-10 pages</div>
+                    <a href="tender-output/02_company_profile.html">Preview →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>03 - Methodology & Scope <span class="status-badge status-pending">Pending</span></h3>
+                    <p>Detailed technical approach, methodology, and project plan.</p>
+                    <div class="meta">Expected: 8-15 pages</div>
+                    <a href="tender-output/03_methodology_and_scope.html">Preview →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>04 - Pricing Schedule <span class="status-badge status-pending">Pending</span></h3>
+                    <p>Complete pricing breakdown and cost structure.</p>
+                    <div class="meta">Expected: 3-5 pages</div>
+                    <a href="tender-output/04_pricing_schedule.html">Preview →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>05 - Compliance Checklist <span class="status-badge status-pending">Pending</span></h3>
+                    <p>Item-by-item compliance matrix against tender requirements.</p>
+                    <div class="meta">Complete coverage required</div>
+                    <a href="tender-output/05_compliance_checklist.html">Preview →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>99 - Appendices <span class="status-badge status-pending">Pending</span></h3>
+                    <p>Supporting documents, certificates, CVs, and reference materials.</p>
+                    <div class="meta">As needed</div>
+                    <a href="tender-output/99_appendices.html">Preview →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="folder-section">
+            <h2 class="section-title">⚙️ Configuration</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Company Profile</h3>
+                    <p>Your company's registration details, contact information, and key personnel.</p>
+                    <a href="tender-config/tender_profile.json">View JSON →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Brand Profile</h3>
+                    <p>Brand voice, visual identity, and communication style.</p>
+                    <a href="tender-config/brand_profile.json">View JSON →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Style Guide</h3>
+                    <p>Writing conventions and terminology preferences.</p>
+                    <a href="tender-config/style_guide.md">View Guide →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Brand CSS</h3>
+                    <p>Visual styling for generated documents.</p>
+                    <a href="tender-config/brand.css">View CSS →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="folder-section">
+            <h2 class="section-title">📚 Documentation</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Main README</h3>
+                    <p>Project overview and getting started guide.</p>
+                    <a href="README.md">Read →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Input Folder Guide</h3>
+                    <p>What documents to upload and how to organise them.</p>
+                    <a href="tender-input/README.md">Read →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Output Folder Guide</h3>
+                    <p>Understanding the generated documents.</p>
+                    <a href="tender-output/README.md">Read →</a>
+                </div>
+                
+                <div class="card">
+                    <h3>Config Folder Guide</h3>
+                    <p>How to configure company and brand settings.</p>
+                    <a href="tender-config/README.md">Read →</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Tri-Tender Template • AI-Powered Tender Response Generator</p>
+        </footer>
+    </div>
+</body>
+</html>
