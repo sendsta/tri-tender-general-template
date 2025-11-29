@@ -2,17 +2,73 @@
 
 **AI-Powered Tender Response Document Generator**
 
-Tri-Tender is a framework for creating comprehensive, professional tender response documents using AI assistance. It produces custom long-form documents (5+ pages minimum for core sections) through a structured, human-in-the-loop workflow.
+Tri-Tender creates comprehensive, professional tender response documents that are **structured entirely according to your specific tender's requirements**—not pre-defined templates.
 
 ---
 
-## 🎯 What Tri-Tender Does
+## 🎯 Core Principle: Tender-Driven Structure
 
-- **Analyses tender documents** to extract all requirements, evaluation criteria, and compliance needs
-- **Builds company profiles** from your uploaded documents
-- **Creates comprehensive tender responses** with substantial, tailored content
-- **Produces preview-ready HTML documents** that can be easily converted to PDF
-- **Guides you through a structured workflow** with checkpoints for your approval
+**Every tender is different. Every response should be different.**
+
+Tri-Tender does NOT use:
+- ❌ Pre-defined document templates
+- ❌ Standard section structures
+- ❌ One-size-fits-all formats
+
+Tri-Tender DOES:
+- ✅ Analyse YOUR tender document
+- ✅ Extract the EXACT structure required
+- ✅ Create documents that match the tender's specifications
+- ✅ Ensure compliance with tender-specific formatting
+
+---
+
+## 📋 How It Works
+
+### Step 1: Upload Your Documents
+Place your tender and company documents in `tender-input/`
+
+### Step 2: AI Analyses the Tender
+The AI reads your tender document and identifies:
+- Required documents and sections
+- Mandatory forms and annexures
+- Evaluation criteria
+- Submission format requirements
+
+### Step 3: Structure Discovery
+The AI presents a **proposed document structure** based on your tender:
+
+```
+Example (Government RFP):
+├── Part A: Administrative Documents
+│   ├── Completed SBD Forms
+│   ├── Tax Clearance Certificate
+│   └── B-BBEE Certificate
+├── Part B: Technical Proposal
+│   ├── Company Profile
+│   ├── Methodology
+│   └── Team Composition
+└── Part C: Financial Proposal
+    ├── Pricing Schedule
+    └── Payment Terms
+
+Example (Corporate RFQ):
+├── Executive Summary
+├── Understanding of Requirements
+├── Proposed Solution
+├── Implementation Approach
+├── Project Team
+├── Relevant Experience
+└── Commercial Proposal
+```
+
+**You approve the structure before any documents are created.**
+
+### Step 4: Document Creation
+The AI creates each document with comprehensive content, checking in with you after each section.
+
+### Step 5: Final Review
+Complete package reviewed against tender requirements.
 
 ---
 
@@ -20,229 +76,138 @@ Tri-Tender is a framework for creating comprehensive, professional tender respon
 
 ```
 tri-tender-template/
-├── tender_planner_prompt.ts    # AI system prompt (the brain)
+├── tender_planner_prompt.ts    # AI system prompt
 ├── README.md                   # This file
+├── index.html                  # Document preview hub
 │
-├── tender-config/              # Configuration & branding
+├── tender-config/              # Company & brand settings
 │   ├── tender_profile.json     # Your company details
-│   ├── brand_profile.json      # Brand voice & visual identity
-│   ├── sectors.json            # Industry sectors you operate in
-│   ├── style_guide.md          # Writing style guidelines
-│   ├── brand.css               # Visual styling for documents
-│   └── README.md               # Config folder guide
+│   ├── brand_profile.json      # Brand voice & identity
+│   ├── sectors.json            # Industry sectors
+│   ├── style_guide.md          # Writing guidelines
+│   └── brand.css               # Document styling
 │
 ├── tender-input/               # YOUR UPLOADS GO HERE
-│   ├── README.md               # Upload instructions
-│   └── (your tender & company docs)
+│   └── (tender & company docs)
 │
 └── tender-output/              # GENERATED DOCUMENTS APPEAR HERE
-    ├── README.md               # Output folder guide
-    └── (AI-generated HTML documents)
+    └── (structured per tender requirements)
 ```
-
----
-
-## 🚀 Getting Started
-
-### Step 1: Prepare Your Documents
-
-Gather the following documents:
-
-**Tender Documents (Required):**
-- RFP/RFQ/ToR document
-- Specifications or scope of work
-- Pricing schedules or BOQ templates
-- Any addenda or clarifications
-
-**Company Documents (Required):**
-- Company profile
-- Registration certificates
-- Tax clearance
-- B-BBEE certificate (if applicable)
-- Key personnel CVs
-- Past project references
-
-### Step 2: Upload to tender-input/
-
-Place all your documents in the `tender-input/` folder.
-
-### Step 3: Start the AI Workflow
-
-The AI will guide you through:
-
-1. **Document Analysis** – Extracting tender requirements
-2. **Profile Building** – Understanding your company
-3. **Strategy Planning** – Aligning your response approach
-4. **Document Creation** – Building each section
-5. **Review & Refinement** – Polishing the final output
-
-### Step 4: Review Generated Documents
-
-Find your tender response documents in `tender-output/`. Each document is:
-- **HTML format** for easy preview
-- **Print-ready** with proper styling
-- **Previewable** directly in your file browser
-
----
-
-## 📄 Documents Generated
-
-The AI creates these documents in `tender-output/`:
-
-| File | Description | Min. Length |
-|------|-------------|-------------|
-| `01_cover_letter.html` | Executive cover letter | 2-3 pages |
-| `02_company_profile.html` | Comprehensive company overview | 5-10 pages |
-| `03_methodology_and_scope.html` | Detailed approach & methodology | 8-15 pages |
-| `04_pricing_schedule.html` | Pricing and cost breakdown | 3-5 pages |
-| `05_compliance_checklist.html` | Requirement-by-requirement compliance | Complete |
-| `99_appendices.html` | Supporting documents index | As needed |
 
 ---
 
 ## 🔄 Human-in-the-Loop Workflow
 
-Tri-Tender follows a **checkpoint-based workflow**. The AI will stop and consult you at each phase:
+The AI consults you at **7 checkpoints**:
 
-```
-📥 Phase 1: Document Intake
-   └── ⏸️ Checkpoint: Confirm documents received
+| # | Phase | What Happens |
+|---|-------|--------------|
+| 1 | Document Intake | Confirm all documents received |
+| 2 | Requirements | Validate extracted requirements |
+| 3 | **Structure Discovery** | **Approve the proposed document structure** |
+| 4 | Company Profile | Approve company information |
+| 5 | Strategy | Agree on response approach |
+| 6 | Each Document | Review and approve each section |
+| 7 | Final Review | Approve complete package |
 
-📋 Phase 2: Requirements Extraction  
-   └── ⏸️ Checkpoint: Validate extracted requirements
-
-🏢 Phase 3: Company Profile
-   └── ⏸️ Checkpoint: Approve company summary
-
-📊 Phase 4: Response Strategy
-   └── ⏸️ Checkpoint: Agree on approach
-
-📝 Phase 5: Document Creation (per section)
-   └── ⏸️ Checkpoint: Review each section
-
-✅ Phase 6: Final Assembly
-   └── ⏸️ Checkpoint: Approve complete package
-```
-
-**The AI will NOT proceed to the next phase without your explicit approval.**
+**The AI will NOT proceed without your approval at each checkpoint.**
 
 ---
 
-## 🎨 Customising Your Brand
+## 📄 Document Output
 
-### Brand Configuration
+### Format
+- **Default:** HTML (easy preview, converts to PDF)
+- **Alternative:** DOCX, PDF (if tender specifies)
 
-Edit files in `tender-config/` to customise:
+### Naming
+Documents are named according to:
+1. Tender-specified names (if prescribed)
+2. Logical names matching tender structure (if not specified)
 
-**`brand_profile.json`** – Your brand voice and identity:
-```json
-{
-  "brandName": "Your Company",
-  "primaryColor": "#1a365d",
-  "tone": "professional",
-  "values": ["innovation", "reliability"]
-}
-```
-
-**`brand.css`** – Visual styling:
-```css
-:root {
-  --primary-color: #1a365d;
-  --accent-color: #3182ce;
-}
-```
-
-**`style_guide.md`** – Writing conventions and terminology
+### Previewing
+- Open any `.html` file in a browser
+- Use `index.html` as your document hub
+- Export to PDF via browser print function
 
 ---
 
-## 📋 Key Principles
+## 🚀 Getting Started
 
-### Custom Content, Not Templates
+### 1. Gather Your Documents
 
-The AI creates **fresh, tailored content** for each tender. It does NOT:
-- Edit pre-existing templates
-- Use generic boilerplate
-- Copy from previous responses
+**Tender Documents:**
+- RFP / RFQ / ToR / ITT
+- Specifications
+- Addenda / Clarifications
+- Pricing templates (if provided)
 
-### Substantial Documents
+**Company Documents:**
+- Company profile
+- Registration certificates
+- Tax clearance
+- B-BBEE certificate
+- Key personnel CVs
+- Reference letters
+- Relevant certifications
 
-Core sections are **5+ pages minimum**. The AI will never artificially truncate content to meet arbitrary limits.
+### 2. Upload to tender-input/
+Place all documents in the `tender-input/` folder.
 
-### Evidence-Based Claims
-
-All claims in the tender response must be:
-- Supported by your uploaded documents
-- Verifiable and accurate
-- Marked as placeholders if information is missing
-
-### Compliance First
-
+### 3. Start the AI Workflow
 The AI will:
-- Address EVERY tender requirement
-- Follow prescribed formats exactly
-- Flag any deviations for your approval
-
----
-
-## 🔧 Technical Notes
-
-### Document Format
-
-Generated documents are **HTML files** that:
-- Preview in any web browser
-- Include print-friendly styling
-- Can be exported to PDF via browser print
-- Reference `brand.css` for consistent styling
-
-### Previewing Documents
-
-All generated documents can be previewed:
-- **In browser:** Open any `.html` file directly
-- **In VS Code:** Use Live Preview extension
-- **Export to PDF:** Print → Save as PDF
-
-### File Naming Convention
-
-```
-XX_section_name.html
-
-01 = Cover Letter
-02 = Company Profile
-03 = Methodology
-04 = Pricing
-05 = Compliance
-99 = Appendices
-```
+1. Confirm document receipt
+2. Analyse tender requirements
+3. **Propose a structure based on YOUR tender**
+4. Create documents for your review
 
 ---
 
 ## ⚠️ Important Notes
 
-1. **Never edit files in `tender-output/` manually** – The AI will overwrite them
-2. **Keep original documents** in `tender-input/` for reference
-3. **Review all AI-generated content** before submission
-4. **Verify legal/compliance claims** with appropriate professionals
+1. **No Pre-defined Templates**
+   The document structure comes from YOUR tender, not from this template.
+
+2. **Review AI Output**
+   Always review generated content before submission.
+
+3. **Verify Compliance**
+   Double-check all claims against your actual capabilities.
+
+4. **Tool Failures**
+   If something fails, the AI will tell you and attempt to fix it—it won't assume success.
 
 ---
 
 ## 📞 Workflow Commands
 
-During the AI session, you can say:
+During the AI session:
 
-- **"Let's start"** – Begin the tender response workflow
-- **"Show me the requirements"** – Review extracted requirements
-- **"Proceed to next phase"** – Move forward (after checkpoint)
-- **"Make changes to [section]"** – Request revisions
-- **"Show me what's complete"** – Get status overview
-- **"Create the [section name]"** – Jump to specific section
-
----
-
-## 📝 License
-
-This template is provided for creating tender response documents. Customise freely for your organisation's needs.
+| Say This | To Do This |
+|----------|------------|
+| "Let's start" | Begin the workflow |
+| "Show the requirements" | Review extracted requirements |
+| "Show the proposed structure" | See/revise document structure |
+| "Proceed" | Move to next phase (after checkpoint) |
+| "Make changes to..." | Request revisions |
+| "What's the status?" | Get progress overview |
 
 ---
 
-**Ready to create a winning tender response? Upload your documents and let's begin!**
+## 🎨 Customisation
+
+### Brand Colours
+Edit `tender-config/brand.css`:
+```css
+:root {
+    --primary-color: #1a365d;    /* Your brand colour */
+    --accent-color: #3182ce;     /* Accent colour */
+}
+```
+
+### Company Details
+Edit `tender-config/tender_profile.json` with your company information, or let the AI extract it from your uploaded documents.
+
+---
+
+**Ready to create a winning tender response? Upload your tender document and let's discover what structure it requires!**
