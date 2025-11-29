@@ -1,0 +1,70 @@
+{
+  "brandName": "",
+  "tagline": "",
+  "logoPath": "",
+  
+  "brandVoice": {
+    "tone": "",
+    "personality": [],
+    "keyMessages": [],
+    "valueProposition": "",
+    "differentiators": []
+  },
+  
+  "writingStyle": {
+    "formality": "",
+    "perspective": "",
+    "sentenceLength": "",
+    "jargonLevel": "",
+    "preferredTerms": {},
+    "avoidTerms": []
+  },
+  
+  "visualIdentity": {
+    "primaryColor": "#1a365d",
+    "secondaryColor": "#2d3748",
+    "accentColor": "#3182ce",
+    "backgroundColor": "#ffffff",
+    "textColor": "#333333",
+    
+    "typography": {
+      "headingFont": "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
+      "bodyFont": "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
+      "headingSizes": {
+        "h1": "28px",
+        "h2": "24px",
+        "h3": "20px"
+      },
+      "bodySize": "12px",
+      "lineHeight": "1.6"
+    },
+    
+    "spacing": {
+      "sectionGap": "30px",
+      "paragraphGap": "15px",
+      "tableCell": "12px"
+    }
+  },
+  
+  "documentStyle": {
+    "headerStyle": "",
+    "footerContent": "",
+    "pageNumbering": true,
+    "watermark": "",
+    "confidentialityNotice": ""
+  },
+  
+  "sectorSpecific": {
+    "industry": "",
+    "regulatoryTerms": [],
+    "technicalTerminology": [],
+    "complianceStandards": []
+  },
+  
+  "competitivePositioning": {
+    "strengths": [],
+    "uniqueSellingPoints": [],
+    "targetMarket": "",
+    "competitors": []
+  }
+}

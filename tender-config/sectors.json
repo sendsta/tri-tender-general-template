@@ -1,0 +1,89 @@
+{
+  "sectors": [
+    {
+      "id": "construction",
+      "name": "Construction & Building",
+      "keywords": ["construction", "building", "civil", "infrastructure", "engineering"],
+      "commonRequirements": ["CIDB registration", "NHBRC registration", "Health & Safety compliance"],
+      "typicalDocuments": ["CIDB certificate", "Health & Safety plan", "Method statements"]
+    },
+    {
+      "id": "it",
+      "name": "Information Technology",
+      "keywords": ["IT", "software", "technology", "digital", "systems", "ICT"],
+      "commonRequirements": ["ISO 27001", "Data protection compliance", "SLA commitments"],
+      "typicalDocuments": ["Technical specifications", "Architecture diagrams", "Security policies"]
+    },
+    {
+      "id": "security",
+      "name": "Security Services",
+      "keywords": ["security", "guarding", "surveillance", "protection", "PSIRA"],
+      "commonRequirements": ["PSIRA registration", "Firearm competency", "Training certifications"],
+      "typicalDocuments": ["PSIRA certificate", "Grading certificate", "Training records"]
+    },
+    {
+      "id": "cleaning",
+      "name": "Cleaning & Facilities",
+      "keywords": ["cleaning", "janitorial", "facilities", "maintenance", "hygiene"],
+      "commonRequirements": ["SABS standards", "Environmental compliance", "Health certification"],
+      "typicalDocuments": ["Product specifications", "Equipment lists", "Method statements"]
+    },
+    {
+      "id": "consulting",
+      "name": "Professional Services & Consulting",
+      "keywords": ["consulting", "advisory", "professional services", "management"],
+      "commonRequirements": ["Professional body registration", "PI insurance", "References"],
+      "typicalDocuments": ["Methodology document", "Team CVs", "Case studies"]
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare & Medical",
+      "keywords": ["healthcare", "medical", "pharmaceutical", "clinical", "health"],
+      "commonRequirements": ["HPCSA registration", "SAHPRA compliance", "Quality certifications"],
+      "typicalDocuments": ["Practitioner registrations", "Facility licenses", "Accreditations"]
+    },
+    {
+      "id": "logistics",
+      "name": "Logistics & Transport",
+      "keywords": ["logistics", "transport", "freight", "distribution", "supply chain"],
+      "commonRequirements": ["Operating permits", "Fleet compliance", "Insurance coverage"],
+      "typicalDocuments": ["Vehicle registrations", "Driver certifications", "Route plans"]
+    },
+    {
+      "id": "catering",
+      "name": "Catering & Hospitality",
+      "keywords": ["catering", "food", "hospitality", "events", "meals"],
+      "commonRequirements": ["Health certificate", "Food handling certification", "HACCP"],
+      "typicalDocuments": ["Menu samples", "Health certificates", "Equipment specifications"]
+    },
+    {
+      "id": "training",
+      "name": "Training & Education",
+      "keywords": ["training", "education", "learning", "development", "SETA"],
+      "commonRequirements": ["SETA accreditation", "Facilitator qualifications", "Assessment standards"],
+      "typicalDocuments": ["Accreditation certificates", "Course materials", "Facilitator CVs"]
+    },
+    {
+      "id": "engineering",
+      "name": "Engineering Services",
+      "keywords": ["engineering", "design", "technical", "mechanical", "electrical"],
+      "commonRequirements": ["ECSA registration", "Professional indemnity", "Design standards"],
+      "typicalDocuments": ["ECSA certificates", "Design portfolios", "Technical qualifications"]
+    },
+    {
+      "id": "environmental",
+      "name": "Environmental Services",
+      "keywords": ["environmental", "waste", "recycling", "sustainability", "green"],
+      "commonRequirements": ["Waste license", "Environmental permits", "ISO 14001"],
+      "typicalDocuments": ["Environmental authorizations", "Waste licenses", "Compliance certificates"]
+    },
+    {
+      "id": "financial",
+      "name": "Financial Services",
+      "keywords": ["financial", "accounting", "audit", "banking", "insurance"],
+      "commonRequirements": ["FSCA registration", "Professional body membership", "Fidelity insurance"],
+      "typicalDocuments": ["Practice certificates", "FSP license", "Professional memberships"]
+    }
+  ],
+  "customSectors": []
+}

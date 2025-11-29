@@ -1,0 +1,144 @@
+{
+  "companyName": "",
+  "tradingName": "",
+  "registrationNumber": "",
+  "vatNumber": "",
+  "taxClearanceNumber": "",
+  "taxClearanceExpiry": "",
+  "csdNumber": "",
+  "bbbeeLevel": "",
+  "bbbeeExpiry": "",
+  
+  "physicalAddress": {
+    "street": "",
+    "city": "",
+    "province": "",
+    "postalCode": "",
+    "country": ""
+  },
+  
+  "postalAddress": {
+    "poBox": "",
+    "city": "",
+    "province": "",
+    "postalCode": ""
+  },
+  
+  "contact": {
+    "telephone": "",
+    "fax": "",
+    "email": "",
+    "website": ""
+  },
+  
+  "authorisedSignatory": {
+    "name": "",
+    "title": "",
+    "email": "",
+    "telephone": "",
+    "signature": ""
+  },
+  
+  "companyOverview": {
+    "yearEstablished": "",
+    "description": "",
+    "mission": "",
+    "vision": "",
+    "values": []
+  },
+  
+  "legalStatus": {
+    "type": "",
+    "ownershipStructure": "",
+    "shareholding": []
+  },
+  
+  "keyPersonnel": [
+    {
+      "name": "",
+      "position": "",
+      "qualifications": [],
+      "experience": "",
+      "cvReference": ""
+    }
+  ],
+  
+  "services": [],
+  
+  "sectors": [],
+  
+  "geographicCoverage": [],
+  
+  "experience": {
+    "yearsInBusiness": "",
+    "projectsCompleted": "",
+    "keyProjects": [
+      {
+        "clientName": "",
+        "projectName": "",
+        "description": "",
+        "value": "",
+        "duration": "",
+        "yearCompleted": "",
+        "contactPerson": "",
+        "contactEmail": "",
+        "contactPhone": ""
+      }
+    ]
+  },
+  
+  "references": [
+    {
+      "companyName": "",
+      "contactPerson": "",
+      "position": "",
+      "email": "",
+      "telephone": "",
+      "projectDescription": ""
+    }
+  ],
+  
+  "certifications": [
+    {
+      "name": "",
+      "issuingBody": "",
+      "number": "",
+      "validUntil": ""
+    }
+  ],
+  
+  "insurance": {
+    "professionalIndemnity": {
+      "insurer": "",
+      "policyNumber": "",
+      "coverAmount": "",
+      "validUntil": ""
+    },
+    "publicLiability": {
+      "insurer": "",
+      "policyNumber": "",
+      "coverAmount": "",
+      "validUntil": ""
+    }
+  },
+  
+  "bankingDetails": {
+    "bankName": "",
+    "branchName": "",
+    "branchCode": "",
+    "accountNumber": "",
+    "accountType": ""
+  },
+  
+  "employeeCount": {
+    "permanent": "",
+    "contract": "",
+    "total": ""
+  },
+  
+  "annualTurnover": {
+    "currentYear": "",
+    "previousYear": "",
+    "yearBeforePrevious": ""
+  }
+}
