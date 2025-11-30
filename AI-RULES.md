@@ -225,6 +225,190 @@ For EACH document/section identified in Phase 3:
 
 ---
 
+# Tri-Tender AI Rules
+
+These rules apply to the **Tri-Tender template** and are injected into all system prompts via `[[AI_RULES]]`.
+
+They define:
+
+- The **core mission** of Tri-Tender.
+- The **project filesystem layout**.
+- How **documents flow** from intake → workspace → final outputs.
+- How the **preview system** discovers documents in `tender-output/`, `workspace/`, and `tender/`.
+
+---
+
+## 1. Core Mission & Identity
+
+- Tri-Tender is a **tender-response workspace and builder**, not a software development project.
+- Deliverables are **structured tender-response artefacts**, such as:
+  - Markdown (`.md`)
+  - HTML (`.html`)
+  - JSON (`.json`)
+  - Spreadsheet placeholders or references (`.xlsx` where appropriate)
+- Every action must support one of:
+  - Understanding a tender and its requirements.
+  - Mapping company capabilities to those requirements.
+  - Building compliant, persuasive tender responses.
+  - Organising the outputs clearly for preview, review, and export.
+
+**Absolute rules:**
+
+1. **Tender-driven structure**  
+   - Never impose a generic template (e.g. “cover letter, methodology, pricing”) unless the tender explicitly requires it.
+   - Always derive structure from:
+     - The actual tender documents, and
+     - Where available, `meta/tender_outline.json`.
+
+2. **Evidence-driven content**  
+   - Use company evidence from `company/` and `meta/company_outline.json`.
+   - Never fabricate certifications, capacity, or experience.
+
+3. **No software/code work**  
+   - Do not design or implement applications, APIs, or technical architectures.
+   - Do not generate or modify code for any language or framework.
+   - All descriptions must remain on the level of **tender content, workflows, and documentation**, not implementation.
+
+---
+
+## 2. Project Filesystem Layout
+
+Every Tri-Tender project has a **project root** with the following key directories:
+
+- `meta/`
+  - `tender_outline.json` – machine-readable outline of tender sections, requirements, and evaluation criteria.
+  - `company_outline.json` – machine-readable outline of company capabilities, experience, and core data.
+
+- `tender/`
+  - `00_original/` – raw uploaded tender docs (PDF/DOCX/etc).
+  - `01_parsed/` – text-extracted / OCR’d versions for analysis.
+  - `02_structured/` (optional) – structured JSON/Markdown: requirement lists, matrices, section summaries.
+
+- `company/`
+  - `00_original_uploads/` – raw uploaded company docs (profiles, certificates, CVs, etc.).
+  - `01_parsed/` – parsed/normalised versions.
+  - `02_structured/` (optional) – structured company profiles, capability maps.
+
+- `workspace/`
+  - `00_planning/` – kickoff notes, checklists, questions.
+  - `01_analysis/` – section summaries, risks, gaps, clarifications, company-to-tender fit.
+  - `02_compliance/` – compliance matrices, returnables mapping, mandatory vs. functional criteria.
+  - `03_proposal/` – proposal narratives (drafts, outlines).
+  - `04_pricing/` – pricing assumptions, narratives, structures.
+  - `05_attachments_for_submission/` – annexure indices, attachment lists, mapping to evidence.
+
+- `exports/`
+  - `draft/` – combined draft outputs (e.g. master `tender_response_draft.html`).
+  - `final/` (optional) – fully packaged exports (ZIP/PDF) prepared by external tools.
+
+- `tender-output/`
+  - **Final, user-facing tender response documents**, e.g.:
+    - `*.html` – primary format for preview and PDF conversion.
+    - `*.docx` or `*.pdf` – where the tender explicitly requires these.
+  - `index.json` – machine-readable index of all final documents for the preview system.
+
+- `tender-config/`
+  - `brand.css` – active stylesheet for all final HTML documents.
+  - Optional: `brand.json` and other branding/visual configuration.
+
+- `uploads/` (infrastructure)
+  - Generic upload staging used by the app. Prefer to read from `tender/` and `company/` instead of writing here.
+
+- `parsed/` (infrastructure/legacy)
+  - Additional parsed artefacts; treat as **read-only** unless explicitly instructed.
+
+- `logs/`
+  - Application logs. **Never read or write logs as part of tender content work.**
+
+---
+
+## 3. Document Lifecycle
+
+### 3.1 Builder / Workspace Phase
+
+The **Builder Agent** (build mode) focuses on populating and refining:
+
+- `meta/tender_outline.json`
+- `meta/company_outline.json`
+- `workspace/00_planning/**`
+- `workspace/01_analysis/**`
+- `workspace/02_compliance/**`
+- `workspace/03_proposal/**`
+- `workspace/04_pricing/**`
+- `workspace/05_attachments_for_submission/**`
+- `exports/draft/**` (combined or stitched draft documents when needed)
+
+Rules:
+
+- Use `tender/01_parsed/` and `tender/02_structured/` as primary sources of tender truth.
+- Use `company/01_parsed/` and `company/02_structured/` plus `meta/company_outline.json` as company truth.
+- Surface gaps explicitly (e.g. in `workspace/01_analysis/gaps_and_clarifications.md`) rather than inventing data.
+
+### 3.2 Final Response / Output Phase
+
+The **Response/Document Agent** (tender-response mode) focuses on:
+
+- Creating final, user-facing documents under `tender-output/`.
+- Ensuring every file’s structure and naming is **driven by the tender**.
+- Updating `tender-output/index.json` so the client UI can discover and preview the outputs.
+
+Rules:
+
+- Final documents **must** be written to `tender-output/`, not `workspace/` or `exports/`.
+- `workspace/` remains for drafts, notes, and supporting narratives.
+- `exports/` is for later packaging; do not treat it as the primary home of final documents.
+
+---
+
+## 4. Naming & Preview Rules
+
+### 4.1 File Naming (Final Documents)
+
+All final tender response documents:
+
+- Live in `tender-output/`.
+- Use the following naming precedence:
+
+1. **Tender-prescribed names**  
+   - If the tender specifies file names, volume labels, or part numbers, use them exactly.
+   - Example: `2490s_Volume_1_Technical_Proposal.html`.
+
+2. **Tender reference + logical part name**  
+   - Include tender reference and a clear, tender-derived part/section name.
+   - Examples:
+     - `2490s_Part_A_Administrative_Compliance.html`
+     - `2490s_Part_B_Technical_Proposal.html`
+     - `2490s_Part_C_Financial_Proposal.html`
+
+3. **Avoid generic names**  
+   - Do not use arbitrary names like `01_cover_letter.html` unless the tender explicitly uses “Cover Letter” as a required document.
+
+### 4.2 `tender-output/index.json`
+
+The preview system relies on an index file located at:
+
+- `tender-output/index.json`
+
+Suggested structure:
+
+```json
+{
+  "tenderReference": "[Tender Reference Number]",
+  "updatedAt": "[ISO 8601 timestamp]",
+  "documents": [
+    {
+      "id": "doc-1",
+      "fileName": "2490s_Part_A_Technical_Proposal.html",
+      "title": "Part A: Technical Proposal",
+      "type": "technical",
+      "phase": "final",
+      "requiredByTender": true
+    }
+  ]
+}
+
+
+
 ## DOCUMENT LENGTH GUIDELINES
 
 These are GUIDELINES, not fixed requirements. Actual length depends on tender complexity:
